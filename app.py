@@ -10,7 +10,7 @@ from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://host.docker.internal:11434")
+OLLAMA_BASE_URL = "http://localhost:11434"
 LLM_MODEL = "qwen3:14b"
 EMBEDDING_MODEL = "mxbai-embed-large"
 DB_PATH = "./chroma_db"

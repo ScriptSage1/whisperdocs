@@ -9,7 +9,6 @@
 ## Getting Started
 
 ### Prerequisites
-* **Docker**
 * **Ollama** installed on the host machine.
 
 ### 1. Download the necessary models
@@ -20,17 +19,20 @@ ollama pull qwen3:14b # or any LLM of your choice, this model in specific fits p
 ollama pull mxbai-embed-large
 
 ```
-### 2. Launching the app
+### 2. Download the necessary dependencies
 
 ```bash
-docker-compose up --build
+pip install -r requirements.txt
 ```
 
 ### 3. To access the chat interface
+```bash
+streamlit run app.py
+```
 Navigate to http://localhost:8501 in your browser.
 
-### Configuration
-The system is highly configurable via docker-compose.yml or environment variables.
+### Future Work
+To add Docker containerization.
 
 ### Contributing
 Contributions are welcome! Please feel free to submit a pull request.
