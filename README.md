@@ -1,4 +1,4 @@
-# whisperdocs
+# WhisperDocs
 
 > **"Your Data, Your Device. Zero External API Calls. 100% Privacy."**
 
