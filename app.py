@@ -6,6 +6,7 @@ from langchain_community.document_loaders import PyPDFLoader, TextLoader
 from langchain_chroma import Chroma
 from langchain_ollama import OllamaEmbeddings, ChatOllama
 from langchain_core.prompts import ChatPromptTemplate
+from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -58,8 +59,10 @@ st.markdown("""
 st.title("WhisperDocs")
 
 def get_embedding_function():
-    return OllamaEmbeddings(model=EMBEDDING_MODEL, base_url=OLLAMA_BASE_URL)
-
+    return OpenAIEmbeddings(model=EMBEDDING_MODEL,
+                             openai_api_base=OLLAMA_BASE_URL,
+                             openai_api_key="lm-studio")
+  
 def load_db():
     if os.path.exists(DB_PATH) and os.listdir(DB_PATH):
         return Chroma(persist_directory=DB_PATH, embedding_function=get_embedding_function())
